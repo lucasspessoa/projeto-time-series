@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from statsmodels.stats.diagnostic import het_arch
 
-# Arquivo com pré-Tratamento de dados em relação ao anterior
+# Arquivo com pré-Tratamento de dados
 read_excel = pd.read_excel('dados_trabalho_ajustado.xlsx')
 
 df = pd.DataFrame(read_excel)
@@ -17,7 +17,7 @@ df = df.set_index("Matricula")
 df = df[[515088]]
 
 # Questão7 - ainda em melhor modelo ARIMA(0,0,2)
-# Estimação do correlograma dos resíduos ao quadrado para verificação de efeitos ARCH. Em conjunto, Teste de White para verificar a Heterocedasticidade na série
+# Estimação do correlograma dos resíduos ao quadrado para verificação de efeitos ARCH. Em conjunto, Teste de Engle para verificar a Heterocedasticidade na série
 model = ARIMA(df, order=(0, 0, 2))
 fit = model.fit()
 residuals = fit.resid

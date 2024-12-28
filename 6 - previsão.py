@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, mean_absolu
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Arquivo com pré-Tratamento de dados em relação ao anterior
+# Arquivo com pré-Tratamento de dados
 read_excel = pd.read_excel('dados_trabalho_ajustado.xlsx')
 
 df = pd.DataFrame(read_excel)
@@ -28,7 +28,7 @@ fit = model.fit()
 # Previsão do modelo
 predictions = fit.forecast(steps=len(test))
 
-# Cálculo do RMSE
+# Modelos para verificar qualidade da previsão
 rmse = np.sqrt(mean_squared_error(test, predictions))
 mae = mean_absolute_error(test, predictions)
 mape = mean_absolute_percentage_error(test, predictions)
